@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "723179582870",
+    "firebase_url": "https://trabajo-tutelado-psi.firebaseio.com",
+    "project_id": "trabajo-tutelado-psi",
+    "storage_bucket": "trabajo-tutelado-psi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:723179582870:android:8a7a427d60a523acc759b7",
+        "android_client_info": {
+          "package_name": "es.udc.javier.parisr.trabajo_tutelado_psi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "723179582870-6vrtvt94btk27najh2l3r18e228tfvup.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8TDKcO2zZs6G3X1EcG_JFfDzmwFn_gzY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "723179582870-6vrtvt94btk27najh2l3r18e228tfvup.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
