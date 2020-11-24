@@ -18,9 +18,11 @@ import es.udc.javier.parisr.trabajo_tutelado_psi.databinding.ActivityAuthBinding
 
 public class AuthActivity extends AppCompatActivity {
 
+    private static final short MIN_LENGTH = 6;
     private static final String TAG = "tag";
     private FirebaseAuth mAuth;
     private ActivityAuthBinding binding;
+    String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +37,13 @@ public class AuthActivity extends AppCompatActivity {
         String email = binding.etAuthEmail.getText().toString().trim();
         String password = binding.etAuthPassword.getText().toString().trim();
 
-        if (email.isEmpty() == false && password.isEmpty() == false){
+        if (!email.matches(emailPattern)){
+            Toast.makeText(AuthActivity.this,"Invalid email", Toast.LENGTH_SHORT).show();
+        }
+        else if(password.length() < MIN_LENGTH){
+            Toast.makeText(AuthActivity.this,"Password must have at least 6 characters", Toast.LENGTH_SHORT).show();
+        }
+        else{
             mAuth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override
@@ -45,7 +53,7 @@ public class AuthActivity extends AppCompatActivity {
                                 goToMainActivity();
                             } else {
                                 Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                                Toast.makeText(AuthActivity.this, "Authentication failed.",
+                                Toast.makeText(AuthActivity.this, "Sign in failed, please, try again.",
                                         Toast.LENGTH_SHORT).show();
                             }
                         }
@@ -57,7 +65,13 @@ public class AuthActivity extends AppCompatActivity {
         String email = binding.etAuthEmail.getText().toString().trim();
         String password = binding.etAuthPassword.getText().toString().trim();
 
-        if (email.isEmpty() == false && password.isEmpty() == false){
+        if (!email.matches(emailPattern)){
+            Toast.makeText(AuthActivity.this,"Invalid email", Toast.LENGTH_SHORT).show();
+        }
+        else if(password.length() < MIN_LENGTH){
+            Toast.makeText(AuthActivity.this,"Password must have at least 6 characters", Toast.LENGTH_SHORT).show();
+        }
+        else{
             mAuth.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override
@@ -67,7 +81,7 @@ public class AuthActivity extends AppCompatActivity {
                                 goToMainActivity();
                             } else {
                                 Log.w(TAG, "LogInUserWithEmail:failure", task.getException());
-                                Toast.makeText(AuthActivity.this, "Sign in failed.",
+                                Toast.makeText(AuthActivity.this, "Log in failed, please, try again",
                                         Toast.LENGTH_SHORT).show();
                             }
                         }
@@ -79,6 +93,5 @@ public class AuthActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
-
 
 }
