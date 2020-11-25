@@ -1,7 +1,10 @@
 package es.udc.javier.parisr.trabajo_tutelado_psi.domain.auth.service;
 
+import es.udc.javier.parisr.trabajo_tutelado_psi.util.Result;
+
 public interface AuthService {
 
-    int signIn(String email, String password);
-    int logIn(String email, String password);
+    Result signIn(String email, String password);
+    Result logIn(String email, String password);
+
 }
