@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import es.udc.javier.parisr.trabajo_tutelado_psi.domain.route.Route;
+
 public class DetailActivity extends AppCompatActivity {
 
     @Override

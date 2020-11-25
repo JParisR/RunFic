@@ -1,15 +1,15 @@
 package es.udc.javier.parisr.trabajo_tutelado_psi;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.util.List;
+
+import es.udc.javier.parisr.trabajo_tutelado_psi.domain.route.Route;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
