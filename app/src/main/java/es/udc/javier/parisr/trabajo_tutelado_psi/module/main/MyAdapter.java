@@ -1,4 +1,4 @@
-package es.udc.javier.parisr.trabajo_tutelado_psi;
+package es.udc.javier.parisr.trabajo_tutelado_psi.module.main;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import es.udc.javier.parisr.trabajo_tutelado_psi.R;
 import es.udc.javier.parisr.trabajo_tutelado_psi.domain.route.Route;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {

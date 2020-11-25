@@ -11,9 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LogOutActivity" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".AuthActivity">
+        <activity android:name=".module.logOut.LogOutActivity" />
+        <activity android:name=".module.main.MainActivity" />
+        <activity android:name=".module.auth.AuthActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

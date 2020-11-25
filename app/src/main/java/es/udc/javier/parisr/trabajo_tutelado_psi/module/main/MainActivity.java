@@ -1,4 +1,4 @@
-package es.udc.javier.parisr.trabajo_tutelado_psi;
+package es.udc.javier.parisr.trabajo_tutelado_psi.module.main;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -9,11 +9,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import java.util.ArrayList;
-
-import es.udc.javier.parisr.trabajo_tutelado_psi.domain.route.Route;
+import es.udc.javier.parisr.trabajo_tutelado_psi.R;
 import es.udc.javier.parisr.trabajo_tutelado_psi.domain.route.service.RouteService;
 import es.udc.javier.parisr.trabajo_tutelado_psi.domain.route.service.RouteServiceImp;
+import es.udc.javier.parisr.trabajo_tutelado_psi.module.detail.DetailActivity;
 
 public class MainActivity extends AppCompatActivity implements MyAdapter.ItemClickListener {
 
@@ -54,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.ItemCli
         bundle.putSerializable("item",adapter.getItem(position));
 
         //Creo un intent y le añado el bundle
-        Intent intent = new Intent(this,DetailActivity.class);
+        Intent intent = new Intent(this, DetailActivity.class);
         intent.putExtra("bundle",bundle);
         startActivity(intent);
     }
