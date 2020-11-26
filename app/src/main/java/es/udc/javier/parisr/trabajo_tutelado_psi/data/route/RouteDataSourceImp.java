@@ -1,22 +1,51 @@
 package es.udc.javier.parisr.trabajo_tutelado_psi.data.route;
 
+import android.util.Log;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import es.udc.javier.parisr.trabajo_tutelado_psi.domain.route.Route;
 import es.udc.javier.parisr.trabajo_tutelado_psi.domain.route.datasource.RouteDataSource;
+import es.udc.javier.parisr.trabajo_tutelado_psi.module.main.MyAdapter;
 
 public class RouteDataSourceImp implements RouteDataSource {
 
+    String TAG = "RouteDataSource";
+    List<Route> itemList = new ArrayList<>();
+    MyAdapter adapter = new MyAdapter(itemList);
+
     @Override
-    public List<Route> searchRoutes() {
-        Route item = new Route("Ruta 1","Ruta 'A Coruña'","Esta ruta discurre por..");
-        Route item2 = new Route("Ruta 2","Ruta 'O Burgo'","Descripción ruta 2");
-        Route item3 = new Route("Ruta 3","Ruta 'Cambre'","Descripción ruta 3...");
-        List<Route> itemList = new ArrayList<>();
-        itemList.add(item);
-        itemList.add(item2);
-        itemList.add(item3);
-        return itemList;
+    public MyAdapter searchRoutes() {
+
+        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase.child("route").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                itemList.clear();
+                String name = dataSnapshot.child("name").getValue().toString();
+                String subname = dataSnapshot.child("subname").getValue().toString();
+                String description = dataSnapshot.child("description").getValue().toString();
+                Route item = new Route(name,subname,description);
+                itemList.add(item);
+                adapter.notifyDataSetChanged();
+                Log.d(TAG, "Value is: " + name);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w(TAG, "Failed to read value.", error.toException());
+            }
+        });
+        return  adapter;
     }
 }
