@@ -5,4 +5,7 @@
     <string name="auth_password">contraseña</string>
     <string name="bt_auth_register">Registrar</string>
     <string name="bt_auth_login">Acceder</string>
+    <string name="versubtitle_sett" translatable="true">Ver Subtítulo de la ruta</string>
+    <string name="verdescription_sett" translatable="true">Ver Descripcion de la ruta</string>
+    <string name="config" translatable="true">Configuración</string>
 </resources>

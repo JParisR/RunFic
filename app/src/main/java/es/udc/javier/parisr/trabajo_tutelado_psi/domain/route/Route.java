@@ -7,11 +7,31 @@ public class Route implements Serializable {
     private String route_name;
     private String route_subname;
     private String route_description;
+    private String imageURI;
+
+    public Route(String route_name, String route_subname, String route_description, String imageURI) {
+        this.route_name = route_name;
+        this.route_subname = route_subname;
+        this.route_description = route_description;
+        this.imageURI=imageURI;
+
+    }
+
+
 
     public Route(String route_name, String route_subname, String route_description) {
         this.route_name = route_name;
         this.route_subname = route_subname;
         this.route_description = route_description;
+        this.imageURI="https://media.quincemil.com/imagenes/2019/09/19181814/Torre-de-Hercules-aerea-640x360.jpg";
+    }
+
+    public String getImageURI() {
+        return imageURI;
+    }
+
+    public void setImageURI(String imageURI) {
+        this.imageURI = imageURI;
     }
 
     public String getRoute_name() {

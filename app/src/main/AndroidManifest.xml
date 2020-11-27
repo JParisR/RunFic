@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".module.conf.ConfActivity"></activity>
         <activity android:name=".module.logOut.LogOutActivity" />
         <activity android:name=".module.main.MainActivity" />
         <activity android:name=".module.detail.DetailActivity" />
