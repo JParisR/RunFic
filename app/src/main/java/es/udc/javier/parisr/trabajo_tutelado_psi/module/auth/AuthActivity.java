@@ -36,7 +36,8 @@ public class AuthActivity extends AppCompatActivity {
                 break;
 
             case PWD_ERROR:
-                Toast.makeText(AuthActivity.this,"Password must have at least 6 characters", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AuthActivity.this,"Password must have at least 6 characters",
+                        Toast.LENGTH_SHORT).show();
                 break;
 
             case SUCCESS:
@@ -62,7 +63,8 @@ public class AuthActivity extends AppCompatActivity {
                 break;
 
             case PWD_ERROR:
-                Toast.makeText(AuthActivity.this,"Password must have at least 6 characters", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AuthActivity.this,"Password must have at least 6 characters",
+                        Toast.LENGTH_SHORT).show();
                 break;
 
             case SUCCESS:

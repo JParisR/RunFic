@@ -2,6 +2,8 @@ package es.udc.javier.parisr.trabajo_tutelado_psi.data.route;
 
 import android.util.Log;
 
+import androidx.annotation.NonNull;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -13,16 +15,16 @@ import java.util.List;
 
 import es.udc.javier.parisr.trabajo_tutelado_psi.domain.route.Route;
 import es.udc.javier.parisr.trabajo_tutelado_psi.domain.route.datasource.RouteDataSource;
-import es.udc.javier.parisr.trabajo_tutelado_psi.module.main.MyAdapter;
+import es.udc.javier.parisr.trabajo_tutelado_psi.module.main.RouteAdapter;
 
 public class RouteDataSourceImp implements RouteDataSource {
 
     String TAG = "RouteDataSource";
     List<Route> itemList = new ArrayList<>();
-    MyAdapter adapter = new MyAdapter(itemList);
+    RouteAdapter adapter = new RouteAdapter(itemList);
 
     @Override
-    public MyAdapter searchRoutes() {
+    public RouteAdapter searchRoutes() {
 
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
         mDatabase.child("route").addValueEventListener(new ValueEventListener() {
@@ -41,7 +43,7 @@ public class RouteDataSourceImp implements RouteDataSource {
             }
 
             @Override
-            public void onCancelled(DatabaseError error) {
+            public void onCancelled(@NonNull DatabaseError error) {
                 // Failed to read value
                 Log.w(TAG, "Failed to read value.", error.toException());
             }

@@ -1,7 +1,7 @@
 package es.udc.javier.parisr.trabajo_tutelado_psi.domain.route.datasource;
 
-import es.udc.javier.parisr.trabajo_tutelado_psi.module.main.MyAdapter;
+import es.udc.javier.parisr.trabajo_tutelado_psi.module.main.RouteAdapter;
 
 public interface RouteDataSource {
-    MyAdapter searchRoutes();
+    RouteAdapter searchRoutes();
 }
