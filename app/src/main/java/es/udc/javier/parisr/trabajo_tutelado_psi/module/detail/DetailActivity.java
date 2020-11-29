@@ -1,4 +1,4 @@
-package es.udc.javier.parisr.trabajo_tutelado_psi;
+package es.udc.javier.parisr.trabajo_tutelado_psi.module.detail;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import es.udc.javier.parisr.trabajo_tutelado_psi.R;
+import es.udc.javier.parisr.trabajo_tutelado_psi.domain.route.Route;
 
 public class DetailActivity extends AppCompatActivity {
 

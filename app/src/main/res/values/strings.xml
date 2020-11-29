@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Trabajo_tutelado_PSI</string>
     <string name="title_activity_detail">Map</string>
+    <string name="auth_email">Email</string>
+    <string name="auth_password">contraseña</string>
+    <string name="bt_auth_register">Registrar</string>
+    <string name="bt_auth_login">Acceder</string>
 </resources>

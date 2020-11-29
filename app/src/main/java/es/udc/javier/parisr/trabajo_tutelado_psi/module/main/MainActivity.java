@@ -1,4 +1,4 @@
-package es.udc.javier.parisr.trabajo_tutelado_psi;
+package es.udc.javier.parisr.trabajo_tutelado_psi.module.main;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -9,15 +9,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import java.util.ArrayList;
+import es.udc.javier.parisr.trabajo_tutelado_psi.R;
+import es.udc.javier.parisr.trabajo_tutelado_psi.domain.route.service.RouteService;
+import es.udc.javier.parisr.trabajo_tutelado_psi.domain.route.service.RouteServiceImp;
+import es.udc.javier.parisr.trabajo_tutelado_psi.module.detail.DetailActivity;
 
 public class MainActivity extends AppCompatActivity implements MyAdapter.ItemClickListener {
 
     Bundle bundle = new Bundle();
     private MyAdapter adapter;
-    Route item = new Route("Ruta 1","Ruta 'A Coruña'","Esta ruta discurre por..");
-    Route item2 = new Route("Ruta 2","Ruta 'O Burgo'","Descripción ruta 2");
-    Route item3 = new Route("Ruta 3","Ruta 'Cambre'","Descripción ruta 3...");
+    private RouteService routeService = new RouteServiceImp();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,10 +26,6 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.ItemCli
         setContentView(R.layout.activity_main);
 
         // Datos para el recycler view
-        ArrayList<Route> itemList = new ArrayList<>();
-        itemList.add(item);
-        itemList.add(item2);
-        itemList.add(item3);
 
         // set up the RecyclerView
         RecyclerView recyclerView = findViewById(R.id.rv_main);
@@ -42,8 +39,9 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.ItemCli
         //Use a linear layout manager
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+
         //Creo el adapter de items y se paso al recyclerView
-        adapter = new MyAdapter(itemList);
+        adapter = new MyAdapter(routeService.searchRoutes());
         adapter.setClickListener(this);
         recyclerView.setAdapter(adapter);
     }
@@ -55,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.ItemCli
         bundle.putSerializable("item",adapter.getItem(position));
 
         //Creo un intent y le añado el bundle
-        Intent intent = new Intent(this,DetailActivity.class);
+        Intent intent = new Intent(this, DetailActivity.class);
         intent.putExtra("bundle",bundle);
         startActivity(intent);
     }

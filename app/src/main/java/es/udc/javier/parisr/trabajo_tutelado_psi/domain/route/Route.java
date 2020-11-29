@@ -1,4 +1,4 @@
-package es.udc.javier.parisr.trabajo_tutelado_psi;
+package es.udc.javier.parisr.trabajo_tutelado_psi.domain.route;
 
 import java.io.Serializable;
 
