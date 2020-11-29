@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 
 import es.udc.javier.parisr.trabajo_tutelado_psi.R;
+import es.udc.javier.parisr.trabajo_tutelado_psi.databinding.ActivityAuthBinding;
+import es.udc.javier.parisr.trabajo_tutelado_psi.databinding.ActivityMainBinding;
 import es.udc.javier.parisr.trabajo_tutelado_psi.domain.route.service.RouteService;
 import es.udc.javier.parisr.trabajo_tutelado_psi.domain.route.service.RouteServiceImp;
 import es.udc.javier.parisr.trabajo_tutelado_psi.module.conf.ConfActivity;
@@ -22,17 +24,16 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.ItemCli
     Bundle bundle = new Bundle();
     private MyAdapter adapter;
     private RouteService routeService = new RouteServiceImp();
-    private RecyclerView recyclerView;
+    ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        // Datos para el recycler view
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         // set up the RecyclerView
-        recyclerView = findViewById(R.id.rv_main);
+        RecyclerView recyclerView = binding.rvMain;
 
         // use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerView
@@ -45,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.ItemCli
 
 
         //Creo el adapter de items y se paso al recyclerView
-        adapter = new MyAdapter(routeService.searchRoutes());
+        adapter = routeService.searchRoutes();
         adapter.setClickListener(this);
         recyclerView.setAdapter(adapter);
 
