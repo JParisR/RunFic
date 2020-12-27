@@ -17,6 +17,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:srcCompat="@tools:sample/avatars" />
+
         <EditText
             android:id="@+id/et_auth_email"
             android:layout_width="match_parent"
@@ -37,28 +43,43 @@
             android:inputType="textPassword"
             android:textSize="20sp" />
 
-        <LinearLayout
+        <Button
+            android:layout_gravity="center"
+            android:id="@+id/bt_auth_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="logIn"
+            android:text="@string/bt_auth_login"
+            tools:ignore="ButtonStyle" />
+
+        <TextView
+            android:gravity="center"
+            android:id="@+id/textView2"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:text="o"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-            <Button
-                android:id="@+id/bt_auth_register"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/bt_auth_register"
-                tools:ignore="ButtonStyle"
-                android:onClick="signIn" />
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:gravity="center"
+            android:onClick="signIn"
+            android:text="@string/bt_auth_register"
+            android:textAllCaps="false"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-            <Button
-                android:id="@+id/bt_auth_login"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/bt_auth_login"
-                tools:ignore="ButtonStyle"
-                android:onClick="logIn"/>
-        </LinearLayout>
+
+
     </LinearLayout>
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

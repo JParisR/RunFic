@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import es.udc.javier.parisr.trabajo_tutelado_psi.module.main.MainActivity;
+import es.udc.javier.parisr.trabajo_tutelado_psi.module.MainActivity;
 import es.udc.javier.parisr.trabajo_tutelado_psi.databinding.ActivityAuthBinding;
 import es.udc.javier.parisr.trabajo_tutelado_psi.domain.auth.service.AuthService;
 import es.udc.javier.parisr.trabajo_tutelado_psi.domain.auth.service.AuthServiceImp;
@@ -81,6 +81,7 @@ public class AuthActivity extends AppCompatActivity {
     public void goToMainActivity(){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+        finish();
     }
 
 }

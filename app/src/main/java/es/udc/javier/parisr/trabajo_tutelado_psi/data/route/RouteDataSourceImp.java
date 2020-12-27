@@ -15,7 +15,7 @@ import java.util.List;
 
 import es.udc.javier.parisr.trabajo_tutelado_psi.domain.route.Route;
 import es.udc.javier.parisr.trabajo_tutelado_psi.domain.route.datasource.RouteDataSource;
-import es.udc.javier.parisr.trabajo_tutelado_psi.module.main.RouteAdapter;
+import es.udc.javier.parisr.trabajo_tutelado_psi.module.ui.list.RouteAdapter;
 
 public class RouteDataSourceImp implements RouteDataSource {
 

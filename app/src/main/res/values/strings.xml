@@ -1,11 +1,23 @@
 <resources>
-    <string name="app_name">Trabajo_tutelado_PSI</string>
+    <string name="app_name">RunFic</string>
     <string name="title_activity_detail">Map</string>
     <string name="auth_email">Email</string>
     <string name="auth_password">contraseña</string>
-    <string name="bt_auth_register">Registrar</string>
-    <string name="bt_auth_login">Acceder</string>
+    <string name="bt_auth_register"><u>Registrarse</u></string>
+    <string name="bt_auth_login">Iniciar sesión</string>
     <string name="versubtitle_sett" translatable="true">Ver Subtítulo de la ruta</string>
     <string name="verdescription_sett" translatable="true">Ver Descripcion de la ruta</string>
     <string name="config" translatable="true">Configuración</string>
+    <string name="title_activity_menu">MenuActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">RunFic</string>
+    <string name="nav_header_subtitle">soporte@runfic.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Ajustes</string>
+
+    <string name="menu_home">Lista de rutas</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_logout">Desconectarse</string>
 </resources>
