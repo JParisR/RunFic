@@ -69,11 +69,6 @@ public class MainActivity extends AppCompatActivity {
                 || super.onSupportNavigateUp();
     }
 
-    public void logOut(){
-
-    }
-
-
     public void logOut(MenuItem item) {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setMessage("¿Seguro que quieres desconectarte?").setPositiveButton("Aceptar",
