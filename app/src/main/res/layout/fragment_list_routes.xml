@@ -4,20 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".module.main.MainActivity">
+    tools:context=".module.MainActivity">
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_main"
+        android:id="@+id/rv_routes"
         android:layout_width="match_parent"
         android:layout_height="495dp"
         android:scrollbars="vertical" />
-
-    <Button
-        android:id="@+id/button_conf"
-        android:layout_width="164dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/rv_main"
-        android:text="@string/config" />
 
 </RelativeLayout>

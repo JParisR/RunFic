@@ -1,4 +1,4 @@
-package es.udc.javier.parisr.trabajo_tutelado_psi.module.main;
+package es.udc.javier.parisr.trabajo_tutelado_psi.module.ui.list;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -21,7 +21,7 @@ import es.udc.javier.parisr.trabajo_tutelado_psi.domain.route.Route;
 public class RouteAdapter extends RecyclerView.Adapter<RouteAdapter.ViewHolder> {
 
     private List<Route> mData;
-    private ItemClickListener mClickListener;
+    public ItemClickListener mClickListener;
 
     // stores and recycles views as they are scrolled off screen
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
