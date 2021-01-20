@@ -57,6 +57,7 @@ public class DetailActivity extends AppCompatActivity implements OnMapReadyCallb
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
+        googleMap.setOnMapLongClickListener(this);
         Polyline polyline1 = googleMap.addPolyline(new PolylineOptions()
                 .clickable(true)
                 .add(
@@ -110,7 +111,7 @@ public class DetailActivity extends AppCompatActivity implements OnMapReadyCallb
 
     @Override
     public void onMapLongClick(LatLng point) {
-        Toast.makeText(this,"tapped, point=" + point,Toast.LENGTH_LONG);
+        Toast.makeText(this,"tapped, point=" + point,Toast.LENGTH_LONG).show();
     }
 
 }
