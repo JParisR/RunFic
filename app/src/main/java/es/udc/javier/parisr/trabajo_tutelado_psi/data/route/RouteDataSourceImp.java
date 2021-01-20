@@ -28,7 +28,7 @@ public class RouteDataSourceImp implements RouteDataSource {
     @Override
     public RouteAdapter searchRoutes() {
 
-        mDatabase.child("routes").child("id").addValueEventListener(new ValueEventListener() {
+        mDatabase.child("routes").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // This method is called once with the initial value and again
@@ -59,7 +59,7 @@ public class RouteDataSourceImp implements RouteDataSource {
         routeadd.put("subname",route.getRoute_subname());
         routeadd.put("imageURI",route.getImageURI());
 
-        mDatabase.child("routes").child("id").push().setValue(routeadd);
+        mDatabase.child("routes").push().setValue(routeadd);
 
         return adapter;
     }
