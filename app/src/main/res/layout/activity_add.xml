@@ -1,88 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".module.add.AddActivity">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tv_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Name"
-         />
+    <FrameLayout
+        android:id="@+id/TopFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
 
-    <EditText
-        android:id="@+id/et_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        android:layout_toRightOf="@id/tv_name" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tv_description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Description"
-        android:layout_below="@id/tv_image" />
+            <Button
+                android:id="@+id/add_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
 
-    <EditText
-        android:id="@+id/et_description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textMultiLine"
-        android:text="Description"
-        android:layout_toRightOf="@id/tv_description"
-        android:layout_below="@id/et_image"/>
+                android:text="Create Route"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.442"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_image"
+                app:layout_constraintVertical_bias="0.858" />
 
-    <TextView
-        android:id="@+id/tv_subtitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Subtitulo"
-        android:layout_below="@id/tv_name"
-        />
+            <EditText
+                android:id="@+id/et_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/et_subtitle"
+                android:layout_toRightOf="@id/tv_image"
+                android:ems="10"
+                android:inputType="textUri"
+                android:text="URL of the image"
+                app:layout_constraintBottom_toTopOf="@+id/add_button"
+                app:layout_constraintTop_toBottomOf="@+id/et_description"
+                tools:layout_editor_absoluteX="185dp" />
 
-    <EditText
-        android:id="@+id/et_subtitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/et_name"
-        android:layout_marginTop="-20dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Subtitle"
-        android:layout_toRightOf="@id/tv_subtitle" />
+            <EditText
+                android:id="@+id/et_subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/et_name"
+                android:layout_toRightOf="@id/tv_subtitle"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Subtitle"
+                app:layout_constraintBottom_toTopOf="@+id/add_button"
+                app:layout_constraintTop_toBottomOf="@+id/et_name"
+                app:layout_constraintVertical_bias="0.219"
+                tools:layout_editor_absoluteX="185dp" />
 
-    <TextView
-        android:id="@+id/tv_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Image"
-        android:layout_below="@id/tv_subtitle" />
+            <EditText
+                android:id="@+id/et_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/et_image"
+                android:layout_toRightOf="@id/tv_description"
+                android:ems="10"
+                android:inputType="textMultiLine"
+                android:text="Description"
+                app:layout_constraintBottom_toTopOf="@+id/add_button"
+                app:layout_constraintTop_toBottomOf="@+id/et_subtitle"
+                app:layout_constraintVertical_bias="0.0"
+                tools:layout_editor_absoluteX="185dp" />
 
-    <EditText
-        android:id="@+id/et_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textUri"
-        android:text="URL of the image"
-        android:layout_toRightOf="@id/tv_image"
-        android:layout_below="@id/et_subtitle"/>
+            <TextView
+                android:id="@+id/tv_subtitle"
+                android:layout_width="63dp"
+                android:layout_height="13dp"
+                android:layout_below="@id/tv_name"
 
+                android:text="Subtitulo"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/et_subtitle"
+                app:layout_constraintHorizontal_bias="0.467"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_name"
+                app:layout_constraintVertical_bias="0.166" />
 
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="55dp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/et_description"
-        android:text="Create Route"
-        android:id="@+id/add_button"
-        ></Button>
+            <TextView
+                android:id="@+id/tv_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_subtitle"
+                android:text="Image"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/et_image"
+                app:layout_constraintHorizontal_bias="0.493"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_description"
+                app:layout_constraintVertical_bias="0.243" />
 
-</RelativeLayout>
+            <EditText
+                android:id="@+id/et_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/tv_name"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Name"
+                app:layout_constraintBottom_toTopOf="@+id/add_button"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.153"
+                tools:layout_editor_absoluteX="185dp" />
+
+            <TextView
+                android:id="@+id/tv_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_image"
+                android:layout_marginTop="72dp"
+                android:text="Description"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/et_description"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_subtitle"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="64dp"
+                android:text="Name"
+                app:layout_constraintEnd_toStartOf="@+id/et_name"
+                app:layout_constraintHorizontal_bias="0.439"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/Fragment2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+        <fragment
+            android:id="@+id/map"
+            class="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </FrameLayout>
+</LinearLayout>

@@ -23,14 +23,17 @@ import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.android.gms.maps.model.RoundCap;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 import es.udc.javier.parisr.trabajo_tutelado_psi.R;
 import es.udc.javier.parisr.trabajo_tutelado_psi.domain.route.Route;
 
-public class DetailActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMapLongClickListener {
+public class DetailActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     DetailActivityFragment detailFragment;
+    ArrayList< String[]> latLongString = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +42,20 @@ public class DetailActivity extends AppCompatActivity implements OnMapReadyCallb
 
         Intent intent = getIntent();
         Bundle bundle = intent.getBundleExtra("bundle");
+        try{
 
+            Route route = (Route) bundle.getSerializable("item");
+            route.getCoordenadas();
+            String coordenadas = route.getCoordenadas();
+            String [] array = coordenadas.split(";");
+            for(int i = 0 ; i < array.length; i++){
+                latLongString.add(array[i].split(","));
+            }
+            coordenadas.length();
+            // "[lat/lng: (15.873785412226027,-14.067908339202404), lat/lng: (-13.655144559111513,24.101245589554306), lat/lng: (28.138426661939143,42.984977066516876), lat/lng: (-15.85568157299516,24.772195480763912), lat/lng: (-12.608182672633834,-52.90360026061534)]"
+        }catch (NullPointerException e){
+            Toast.makeText(this,"Error obteniendo la ruta",Toast.LENGTH_LONG).show();
+        }
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -55,18 +71,18 @@ public class DetailActivity extends AppCompatActivity implements OnMapReadyCallb
 
     }
 
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        googleMap.setOnMapLongClickListener(this);
-        Polyline polyline1 = googleMap.addPolyline(new PolylineOptions()
-                .clickable(true)
-                .add(
-                        new LatLng(-35.016, 143.321),
-                        new LatLng(-34.747, 145.592),
-                        new LatLng(-34.364, 147.891),
-                        new LatLng(-33.501, 150.217),
-                        new LatLng(-32.306, 149.248),
-                        new LatLng(-32.491, 147.309)));
+
+        PolylineOptions poli = new PolylineOptions().clickable(true);
+
+        for(int i = 0; i < latLongString.size(); i++){
+            String lat = latLongString.get(i)[0];
+            String lon = latLongString.get(i)[1];
+            poli.add(new LatLng(Double.parseDouble(lat), Double.parseDouble(lon) ));
+        }
+        Polyline polyline1 = googleMap.addPolyline(poli);
         // [END maps_poly_activity_add_polyline]
         // [START_EXCLUDE silent]
         // Store a data object with the polyline, used here to indicate an arbitrary type.
@@ -109,9 +125,6 @@ public class DetailActivity extends AppCompatActivity implements OnMapReadyCallb
         polyline.setJointType(JointType.ROUND);
     }
 
-    @Override
-    public void onMapLongClick(LatLng point) {
-        Toast.makeText(this,"tapped, point=" + point,Toast.LENGTH_LONG).show();
-    }
+
 
 }
