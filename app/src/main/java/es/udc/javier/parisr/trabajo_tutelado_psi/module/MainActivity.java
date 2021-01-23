@@ -65,18 +65,18 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem menuItem){
-        Intent intent = new Intent(getApplicationContext(),ConfActivity.class);
-        startActivity(intent);
-        return true;
-    }
+
 
     @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    public void onConfItemSelected(MenuItem menuItem){
+        Intent intent = new Intent(getApplicationContext(),ConfActivity.class);
+        startActivity(intent);
     }
 
     public void logOut(MenuItem item) {

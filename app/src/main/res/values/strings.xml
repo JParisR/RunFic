@@ -20,4 +20,8 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="menu_logout">Desconectarse</string>
+    <string name="text_welcome">¡Accede a RunFic!</string>
+    <string name="app_logo">App logo</string>
+    <string name="text_or">o</string>
+    <string name="action_share">Compartir</string>
 </resources>
