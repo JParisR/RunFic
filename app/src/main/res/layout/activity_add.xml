@@ -21,13 +21,28 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
+                android:foregroundTint="#4CAF50"
                 android:text="Create Route"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.442"
+                app:layout_constraintHorizontal_bias="0.432"
+                app:layout_constraintStart_toEndOf="@+id/reinicio_button"
+                app:layout_constraintTop_toBottomOf="@+id/tv_image"
+                app:layout_constraintVertical_bias="0.589" />
+
+            <Button
+                android:id="@+id/reinicio_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:foregroundTint="#F44336"
+                android:text="Reiniciar Ruta"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.201"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_image"
-                app:layout_constraintVertical_bias="0.858" />
+                app:layout_constraintVertical_bias="0.589" />
 
             <EditText
                 android:id="@+id/et_image"

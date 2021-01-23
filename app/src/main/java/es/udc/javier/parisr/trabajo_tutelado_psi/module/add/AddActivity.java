@@ -13,6 +13,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.JointType;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
@@ -28,10 +29,11 @@ import es.udc.javier.parisr.trabajo_tutelado_psi.domain.route.service.RouteServi
 
 public class AddActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMapLongClickListener{
 
-    Button bt_create;
+    Button bt_create, bt_reinicio;
     EditText text_name,text_sub,text_image,text_desc;
     RouteService routeService = new RouteServiceImp();
     String ruta = "";
+    ArrayList<MarkerOptions> markers = new ArrayList<>();
     GoogleMap map;
     int m = 0;
     @Override
@@ -43,6 +45,7 @@ public class AddActivity extends AppCompatActivity implements OnMapReadyCallback
         text_sub = findViewById(R.id.et_subtitle);
         text_image = findViewById(R.id.et_image);
         text_desc = findViewById(R.id.et_description);
+        bt_reinicio = findViewById(R.id.reinicio_button);
         bt_create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,6 +62,14 @@ public class AddActivity extends AppCompatActivity implements OnMapReadyCallback
             }
         });
 
+        bt_reinicio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ruta="";
+                map.clear();
+            }
+        });
+
         SupportMapFragment mapFragment =
                 (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
@@ -66,7 +77,7 @@ public class AddActivity extends AppCompatActivity implements OnMapReadyCallback
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-
+        this.map = googleMap;
         googleMap.setOnMapLongClickListener(this);
 
 
@@ -105,12 +116,11 @@ public class AddActivity extends AppCompatActivity implements OnMapReadyCallback
     }
     @Override
     public void onMapLongClick(LatLng latLng) {
-        ruta += latLng.longitude + "," + latLng.latitude + ";";
+        map.addMarker( new MarkerOptions().draggable(true).position(latLng));
+        ruta += latLng.latitude + "," + latLng.longitude + ";";
 
         Toast.makeText(this,"tapped, point=" + latLng,Toast.LENGTH_LONG).show();
 
-
     }
-
 
 }

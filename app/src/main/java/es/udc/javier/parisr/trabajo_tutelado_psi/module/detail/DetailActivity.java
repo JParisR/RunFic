@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
@@ -76,11 +77,12 @@ public class DetailActivity extends AppCompatActivity implements OnMapReadyCallb
     public void onMapReady(GoogleMap googleMap) {
 
         PolylineOptions poli = new PolylineOptions().clickable(true);
-
+        LatLng position = null;
         for(int i = 0; i < latLongString.size(); i++){
             String lat = latLongString.get(i)[0];
             String lon = latLongString.get(i)[1];
-            poli.add(new LatLng(Double.parseDouble(lat), Double.parseDouble(lon) ));
+            position = new LatLng(Double.parseDouble(lat), Double.parseDouble(lon) );
+            poli.add(position);
         }
         Polyline polyline1 = googleMap.addPolyline(poli);
         // [END maps_poly_activity_add_polyline]
@@ -90,6 +92,8 @@ public class DetailActivity extends AppCompatActivity implements OnMapReadyCallb
         // [END maps_poly_activity_add_polyline_set_tag]
         // Style the polyline.
         stylePolyline(polyline1);
+
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(position,12));
 
     }
 
