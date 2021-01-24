@@ -74,9 +74,16 @@ public class MainActivity extends AppCompatActivity {
                 || super.onSupportNavigateUp();
     }
 
-    public void onConfItemSelected(MenuItem menuItem){
+    public void onConfItemSelected(MenuItem item){
         Intent intent = new Intent(getApplicationContext(),ConfActivity.class);
         startActivity(intent);
+    }
+
+    public void onShareItemSelected(MenuItem item){
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_TEXT, "prueba");
+        startActivity(Intent.createChooser(intent,"Compartir por:"));
     }
 
     public void logOut(MenuItem item) {

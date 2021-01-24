@@ -12,6 +12,6 @@
         android:id="@+id/action_share"
         android:orderInCategory="100"
         android:title="@string/action_share"
-        android:onClick="onConfItemSelected"
+        android:onClick="onShareItemSelected"
         app:showAsAction="never" />
 </menu>

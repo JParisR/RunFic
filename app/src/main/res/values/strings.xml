@@ -24,4 +24,14 @@
     <string name="app_logo">App logo</string>
     <string name="text_or">o</string>
     <string name="action_share">Compartir</string>
+    <string name="tv_add_name">Nombre</string>
+    <string name="et_add_name">Nombre</string>
+    <string name="tv_add_subtitle">Subtítulo</string>
+    <string name="et_add_subtitle">Subtítulo</string>
+    <string name="tv_add_description">Descripción</string>
+    <string name="et_add_description">Descripción</string>
+    <string name="tv_add_image">Imagen</string>
+    <string name="et_add_image">URL de la imagen</string>
+    <string name="bt_add_route">Crear ruta</string>
+    <string name="bt_reset_route">Reiniciar Ruta</string>
 </resources>
