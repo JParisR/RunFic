@@ -1,7 +1,9 @@
 package es.udc.javier.parisr.trabajo_tutelado_psi.module.detail;
 
 import android.content.Intent;
+import android.media.Rating;
 import android.os.Bundle;
+import android.widget.RatingBar;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;

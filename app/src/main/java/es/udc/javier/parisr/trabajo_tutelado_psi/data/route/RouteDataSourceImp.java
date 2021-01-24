@@ -25,6 +25,7 @@ public class RouteDataSourceImp implements RouteDataSource {
     List<Route> itemList = new ArrayList<>();
     RouteAdapter adapter = new RouteAdapter(itemList);
     DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+
     @Override
     public RouteAdapter searchRoutes() {
 
@@ -52,6 +53,7 @@ public class RouteDataSourceImp implements RouteDataSource {
         return  adapter;
     }
 
+    @Override
     public RouteAdapter addRoute(Route route) {
         Map<String,Object> routeadd= new HashMap<>();
         routeadd.put("name",route.getRoute_name());
@@ -59,8 +61,17 @@ public class RouteDataSourceImp implements RouteDataSource {
         routeadd.put("subname",route.getRoute_subname());
         routeadd.put("imageURI",route.getImageURI());
 
+        route.setID(mDatabase.child("routes").push().getKey());
         mDatabase.child("routes").push().setValue(routeadd);
 
         return adapter;
+    }
+
+    @Override
+    public void evaluateRoute(Route route,float puntuacion){
+
+        route.getCalifications().put("cd",puntuacion);
+        route.setCalifications(route.getCalifications());
+        mDatabase.child("routes").child(route.getID()).child("califications").setValue(route.getCalifications());
     }
 }

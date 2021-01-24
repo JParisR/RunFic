@@ -7,6 +7,7 @@ import es.udc.javier.parisr.trabajo_tutelado_psi.module.ui.list.RouteAdapter;
 
 public class RouteServiceImp implements RouteService {
 
+    private String login;
     private RouteDataSource mDatasource = new RouteDataSourceImp();
 
     @Override
@@ -16,5 +17,9 @@ public class RouteServiceImp implements RouteService {
     @Override
     public RouteAdapter addRoute(Route route){
         return mDatasource.addRoute(route);
+    }
+
+    public void evaluateRoute(Route route, float puntuacion){
+        mDatasource.evaluateRoute(route,puntuacion);
     }
 }

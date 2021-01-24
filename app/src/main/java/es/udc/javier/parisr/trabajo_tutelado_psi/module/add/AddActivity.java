@@ -6,11 +6,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import es.udc.javier.parisr.trabajo_tutelado_psi.R;
 import es.udc.javier.parisr.trabajo_tutelado_psi.domain.route.Route;
 import es.udc.javier.parisr.trabajo_tutelado_psi.domain.route.service.RouteService;
 import es.udc.javier.parisr.trabajo_tutelado_psi.domain.route.service.RouteServiceImp;
+import es.udc.javier.parisr.trabajo_tutelado_psi.util.PropertyValidator;
+import es.udc.javier.parisr.trabajo_tutelado_psi.util.exceptions.InputValidationException;
 
 public class AddActivity extends AppCompatActivity {
 
@@ -35,6 +38,17 @@ public class AddActivity extends AppCompatActivity {
                 String image = text_image.getEditableText().toString();
 
                 Route route = new Route(name,sub,desc,image);
+                try {
+                    PropertyValidator.validateRoute(route);
+                }
+                catch(InputValidationException ex){
+                    Toast toast1 = Toast.makeText(v.getContext(),
+                                    ex.getError(), Toast.LENGTH_LONG);
+                    toast1.show();
+                    return;
+                }
+
+
                 routeService.addRoute(route);
 
                 finish();

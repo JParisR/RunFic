@@ -15,6 +15,8 @@
 
     <EditText
         android:id="@+id/et_name"
+        android:layout_marginTop="25dp"
+        android:layout_alignLeft="@id/et_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -27,10 +29,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Description"
-        android:layout_below="@id/tv_image" />
+        android:layout_below="@id/et_image" />
 
     <EditText
         android:id="@+id/et_description"
+        android:layout_marginTop="25dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -44,15 +47,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Subtitulo"
-        android:layout_below="@id/tv_name"
+        android:layout_below="@id/et_name"
         />
 
     <EditText
         android:id="@+id/et_subtitle"
+        android:layout_marginTop="25dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/et_name"
-        android:layout_marginTop="-20dp"
+        android:layout_alignLeft="@id/et_description"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Subtitle"
@@ -63,10 +67,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Image"
-        android:layout_below="@id/tv_subtitle" />
+        android:layout_below="@id/et_subtitle" />
 
     <EditText
         android:id="@+id/et_image"
+        android:layout_alignLeft="@id/et_subtitle"
+        android:layout_marginTop="25dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"

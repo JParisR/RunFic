@@ -1,6 +1,8 @@
 package es.udc.javier.parisr.trabajo_tutelado_psi.module.ui.list;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,7 +25,6 @@ public class RoutesFragment extends Fragment implements RouteAdapter.ItemClickLi
     private RouteAdapter adapter;
     private RouteService routeService = new RouteServiceImp();
     RecyclerView recyclerView;
-
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
@@ -38,6 +39,7 @@ public class RoutesFragment extends Fragment implements RouteAdapter.ItemClickLi
         recyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
         //Use a linear layout manager
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
 
 
         //Creo el adapter de items y se paso al recyclerView

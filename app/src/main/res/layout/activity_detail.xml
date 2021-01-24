@@ -5,22 +5,23 @@
     android:layout_height="match_parent">
 
     <FrameLayout
-        android:id="@+id/Fragment1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1" />
-
-    <FrameLayout
         android:id="@+id/Fragment2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1">
-
+        android:layout_weight="1" >
         <fragment
             android:id="@+id/map"
             class="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/Fragment1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
     </FrameLayout>
 
 </LinearLayout>
