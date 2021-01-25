@@ -7,4 +7,5 @@ public interface RouteService {
 
     RouteAdapter searchRoutes();
     RouteAdapter addRoute(Route route);
+    RouteAdapter searchRoutes(String s);
 }

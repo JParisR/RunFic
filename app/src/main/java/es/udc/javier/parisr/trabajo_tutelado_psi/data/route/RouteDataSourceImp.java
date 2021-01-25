@@ -63,4 +63,34 @@ public class RouteDataSourceImp implements RouteDataSource {
 
         return adapter;
     }
+
+    @Override
+    public RouteAdapter searchRoutes(final String s) {
+        mDatabase.child("routes").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                itemList.clear();
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    Route item=RouteParser.toRoute(ds);
+                    if(item.getRoute_name().toLowerCase().contains(s.toLowerCase())) {
+                        itemList.add(item);
+                    }
+                    adapter.notifyDataSetChanged();
+                    Log.d(TAG, "Value is: " + item.getRoute_name());
+                }
+            }
+
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                // Failed to read value
+                Log.w(TAG, "Failed to read value.", error.toException());
+            }
+        });
+        return  adapter;
+    }
+
+
 }
