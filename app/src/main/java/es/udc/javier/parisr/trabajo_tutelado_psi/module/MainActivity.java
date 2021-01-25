@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -19,7 +18,6 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 
 import es.udc.javier.parisr.trabajo_tutelado_psi.R;
@@ -50,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
+                R.id.nav_home)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -64,8 +62,6 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
-
-
 
     @Override
     public boolean onSupportNavigateUp() {
@@ -82,7 +78,8 @@ public class MainActivity extends AppCompatActivity {
     public void onShareItemSelected(MenuItem item){
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
-        intent.putExtra(Intent.EXTRA_TEXT, "prueba");
+        intent.putExtra(Intent.EXTRA_TEXT, "¡Crea y comparte tus rutas de running favoritas! " +
+                "Descargala ya en: http://RunFic.com");
         startActivity(Intent.createChooser(intent,"Compartir por:"));
     }
 
@@ -105,4 +102,5 @@ public class MainActivity extends AppCompatActivity {
         });
         builder.show();
     }
+
 }

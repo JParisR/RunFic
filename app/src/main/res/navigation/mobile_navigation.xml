@@ -11,15 +11,4 @@
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_list_routes" />
 
-    <fragment
-        android:id="@+id/nav_gallery"
-        android:name="es.udc.javier.parisr.trabajo_tutelado_psi.module.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
-
-    <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="es.udc.javier.parisr.trabajo_tutelado_psi.module.ui.buscar.BuscarRutaFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_buscarruta" />
 </navigation>
