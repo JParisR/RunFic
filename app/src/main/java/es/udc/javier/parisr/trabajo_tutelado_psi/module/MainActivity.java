@@ -82,7 +82,8 @@ public class MainActivity extends AppCompatActivity {
     public void onShareItemSelected(MenuItem item){
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
-        intent.putExtra(Intent.EXTRA_TEXT, "prueba");
+        intent.putExtra(Intent.EXTRA_TEXT, "¡Crea y comparte tus rutas de running favoritas! " +
+                "Descargala ya en: http://RunFic.com");
         startActivity(Intent.createChooser(intent,"Compartir por:"));
     }
 

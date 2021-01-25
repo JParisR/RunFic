@@ -17,7 +17,7 @@
     <string name="action_settings">Ajustes</string>
 
     <string name="menu_home">Lista de rutas</string>
-    <string name="menu_gallery">Gallery</string>
+    <string name="menu_gallery">Invitar amigos</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="menu_logout">Desconectarse</string>
     <string name="text_welcome">¡Accede a RunFic!</string>
@@ -34,4 +34,5 @@
     <string name="et_add_image">URL de la imagen</string>
     <string name="bt_add_route">Crear ruta</string>
     <string name="bt_reset_route">Reiniciar Ruta</string>
+    <string name="menu_search">Buscar Ruta</string>
 </resources>
