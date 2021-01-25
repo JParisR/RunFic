@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -22,7 +23,9 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 
 import es.udc.javier.parisr.trabajo_tutelado_psi.R;
+import es.udc.javier.parisr.trabajo_tutelado_psi.module.add.AddActivity;
 import es.udc.javier.parisr.trabajo_tutelado_psi.module.auth.AuthActivity;
+import es.udc.javier.parisr.trabajo_tutelado_psi.module.conf.ConfActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -38,8 +41,8 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent(getApplicationContext(),AddActivity.class);
+                startActivity(intent);
             }
         });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -62,11 +65,26 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+
+
     @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    public void onConfItemSelected(MenuItem item){
+        Intent intent = new Intent(getApplicationContext(),ConfActivity.class);
+        startActivity(intent);
+    }
+
+    public void onShareItemSelected(MenuItem item){
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_TEXT, "¡Crea y comparte tus rutas de running favoritas! " +
+                "Descargala ya en: http://RunFic.com");
+        startActivity(Intent.createChooser(intent,"Compartir por:"));
     }
 
     public void logOut(MenuItem item) {

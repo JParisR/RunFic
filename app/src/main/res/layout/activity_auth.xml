@@ -17,11 +17,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/imageView"
+        <TextView
+            android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:srcCompat="@tools:sample/avatars" />
+            android:text="@string/text_welcome"
+            android:textColor="@color/colorDarkBlue"
+            android:textSize="20sp"/>
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_gravity="center"
+            android:contentDescription="@string/app_logo"
+            app:srcCompat="@drawable/logo_transparent" />
 
         <EditText
             android:id="@+id/et_auth_email"
@@ -33,6 +43,10 @@
             android:inputType="textEmailAddress"
             android:textSize="20sp" />
 
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
         <EditText
             android:id="@+id/et_auth_password"
             android:layout_width="match_parent"
@@ -43,25 +57,38 @@
             android:inputType="textPassword"
             android:textSize="20sp" />
 
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+
         <Button
-            android:layout_gravity="center"
             android:id="@+id/bt_auth_login"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
             android:layout_weight="1"
+            android:backgroundTint="@color/colorPrimary"
             android:onClick="logIn"
             android:text="@string/bt_auth_login"
             tools:ignore="ButtonStyle" />
 
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="15dp" />
+
         <TextView
-            android:gravity="center"
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="o"
+            android:gravity="center"
+            android:text="@string/text_or"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="15dp" />
 
         <TextView
             android:id="@+id/textView3"
@@ -74,12 +101,9 @@
             android:textAllCaps="false"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-
+            app:layout_constraintStart_toStartOf="parent"
+            android:focusable="true" />
 
     </LinearLayout>
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

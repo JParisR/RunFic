@@ -11,7 +11,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import es.udc.javier.parisr.trabajo_tutelado_psi.domain.route.Route;
 import es.udc.javier.parisr.trabajo_tutelado_psi.domain.route.datasource.RouteDataSource;
@@ -22,25 +24,24 @@ public class RouteDataSourceImp implements RouteDataSource {
     String TAG = "RouteDataSource";
     List<Route> itemList = new ArrayList<>();
     RouteAdapter adapter = new RouteAdapter(itemList);
-
+    DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
     @Override
     public RouteAdapter searchRoutes() {
 
-        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
-        mDatabase.child("route").addValueEventListener(new ValueEventListener() {
+        mDatabase.child("routes").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
                 itemList.clear();
-                String name = dataSnapshot.child("name").getValue().toString();
-                String subname = dataSnapshot.child("subname").getValue().toString();
-                String description = dataSnapshot.child("description").getValue().toString();
-                Route item = new Route(name,subname,description);
-                itemList.add(item);
-                adapter.notifyDataSetChanged();
-                Log.d(TAG, "Value is: " + name);
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    Route item=RouteParser.toRoute(ds);
+                    itemList.add(item);
+                    adapter.notifyDataSetChanged();
+                    Log.d(TAG, "Value is: " + item.getRoute_name());
+                }
             }
+
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
@@ -50,4 +51,46 @@ public class RouteDataSourceImp implements RouteDataSource {
         });
         return  adapter;
     }
+
+    public RouteAdapter addRoute(Route route) {
+        Map<String,Object> routeadd= new HashMap<>();
+        routeadd.put("name",route.getRoute_name());
+        routeadd.put("description",route.getRoute_description());
+        routeadd.put("subname",route.getRoute_subname());
+        routeadd.put("imageURI",route.getImageURI());
+        routeadd.put("coordenadas",route.getCoordenadas());
+        mDatabase.child("routes").push().setValue(routeadd);
+
+        return adapter;
+    }
+
+    @Override
+    public RouteAdapter searchRoutes(final String s) {
+        mDatabase.child("routes").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                itemList.clear();
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    Route item=RouteParser.toRoute(ds);
+                    if(item.getRoute_name().toLowerCase().contains(s.toLowerCase())) {
+                        itemList.add(item);
+                    }
+                    adapter.notifyDataSetChanged();
+                    Log.d(TAG, "Value is: " + item.getRoute_name());
+                }
+            }
+
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                // Failed to read value
+                Log.w(TAG, "Failed to read value.", error.toException());
+            }
+        });
+        return  adapter;
+    }
+
+
 }
