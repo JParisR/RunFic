@@ -20,7 +20,7 @@ import es.udc.javier.parisr.trabajo_tutelado_psi.domain.route.Route;
 
 public class RouteAdapter extends RecyclerView.Adapter<RouteAdapter.ViewHolder> {
 
-    private List<Route> mData;
+    public List<Route> mData;
     public ItemClickListener mClickListener;
 
     // stores and recycles views as they are scrolled off screen
@@ -81,12 +81,12 @@ public class RouteAdapter extends RecyclerView.Adapter<RouteAdapter.ViewHolder> 
     }
 
     //Obtener el item de la posicion
-    Route getItem(int id) {
+    public Route getItem(int id) {
         return mData.get(id);
     }
 
     //Captura los clicks en los items
-    void setClickListener(ItemClickListener itemClickListener) {
+    public void setClickListener(ItemClickListener itemClickListener) {
         this.mClickListener = itemClickListener;
     }
 
@@ -108,4 +108,5 @@ public class RouteAdapter extends RecyclerView.Adapter<RouteAdapter.ViewHolder> 
         if(viewsub) viewHolder.tv_subtitle.setVisibility(View.VISIBLE);
         else viewHolder.tv_subtitle.setVisibility(View.INVISIBLE);
     }
+
 }

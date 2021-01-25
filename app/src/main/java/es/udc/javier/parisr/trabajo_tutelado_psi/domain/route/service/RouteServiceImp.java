@@ -17,4 +17,11 @@ public class RouteServiceImp implements RouteService {
     public RouteAdapter addRoute(Route route){
         return mDatasource.addRoute(route);
     }
+
+    @Override
+    public RouteAdapter searchRoutes(String s) {
+        return mDatasource.searchRoutes(s);
+    }
+
+
 }
