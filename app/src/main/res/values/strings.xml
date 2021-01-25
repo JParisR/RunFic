@@ -1,12 +1,12 @@
 <resources>
     <string name="app_name">RunFic</string>
-    <string name="title_activity_detail">Map</string>
+    <string name="title_activity_detail">Mapa</string>
     <string name="auth_email">Email</string>
-    <string name="auth_password">contraseña</string>
+    <string name="auth_password">Contraseña</string>
     <string name="bt_auth_register"><u>Registrarse</u></string>
     <string name="bt_auth_login">Iniciar sesión</string>
-    <string name="versubtitle_sett" translatable="true">Ver Subtítulo de la ruta</string>
-    <string name="verdescription_sett" translatable="true">Ver Descripcion de la ruta</string>
+    <string name="versubtitle_sett" translatable="true">Ver subtítulo de la ruta</string>
+    <string name="verdescription_sett" translatable="true">Ver descripción de la ruta</string>
     <string name="config" translatable="true">Configuración</string>
     <string name="title_activity_menu">MenuActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -18,7 +18,6 @@
 
     <string name="menu_home">Lista de rutas</string>
     <string name="menu_gallery">Invitar amigos</string>
-    <string name="menu_slideshow">Slideshow</string>
     <string name="menu_logout">Desconectarse</string>
     <string name="text_welcome">¡Accede a RunFic!</string>
     <string name="app_logo">App logo</string>
