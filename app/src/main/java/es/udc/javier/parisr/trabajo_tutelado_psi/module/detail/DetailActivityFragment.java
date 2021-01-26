@@ -55,6 +55,7 @@ public class DetailActivityFragment extends Fragment {
         }
 
         RatingBar calificacion = view.findViewById(R.id.calificacion);
+        calificacion.setVisibility(View.INVISIBLE);
         calificacion.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {

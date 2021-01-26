@@ -3,11 +3,15 @@ package es.udc.javier.parisr.trabajo_tutelado_psi.data.route;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -21,10 +25,12 @@ import es.udc.javier.parisr.trabajo_tutelado_psi.module.ui.list.RouteAdapter;
 
 public class RouteDataSourceImp implements RouteDataSource {
 
+    String login;
     String TAG = "RouteDataSource";
     List<Route> itemList = new ArrayList<>();
     RouteAdapter adapter = new RouteAdapter(itemList);
     DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+
 
     @Override
     public RouteAdapter searchRoutes() {
@@ -61,7 +67,7 @@ public class RouteDataSourceImp implements RouteDataSource {
         routeadd.put("subname",route.getRoute_subname());
         routeadd.put("imageURI",route.getImageURI());
 
-        route.setID(mDatabase.child("routes").push().getKey());
+        route.setID(mDatabase.child("routes").push().getKey().toString());
         mDatabase.child("routes").push().setValue(routeadd);
 
         return adapter;
@@ -69,9 +75,11 @@ public class RouteDataSourceImp implements RouteDataSource {
 
     @Override
     public void evaluateRoute(Route route,float puntuacion){
-
-        route.getCalifications().put("cd",puntuacion);
+        String login = FirebaseAuth.getInstance().getCurrentUser().getUid().toString();
+        route.getCalifications().put(login,puntuacion);
         route.setCalifications(route.getCalifications());
-        mDatabase.child("routes").child(route.getID()).child("califications").setValue(route.getCalifications());
+        if (route.canScore(route,login)) {
+            mDatabase.child("routes").child(route.getID()).child("califications").push().setValue(route.getCalifications());
+        }
     }
 }

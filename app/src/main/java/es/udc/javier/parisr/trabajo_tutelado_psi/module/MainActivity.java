@@ -30,7 +30,6 @@ import es.udc.javier.parisr.trabajo_tutelado_psi.module.conf.ConfActivity;
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

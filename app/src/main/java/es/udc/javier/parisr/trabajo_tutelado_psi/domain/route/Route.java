@@ -27,6 +27,9 @@ public class Route implements Serializable {
         return califications;
     }
 
+    public void addCalification(String login,Float calification){
+        this.califications.put(login,calification);
+    }
     public void setCalifications(Map<String,Float> califications) {
         this.califications = califications;
     }
@@ -46,6 +49,9 @@ public class Route implements Serializable {
         this.imageURI = imageURI;
     }
 
+    public boolean canScore(Route route, String login){
+        return !(route.getCalifications().containsKey(login));
+    }
     public String getID() {
         return ID;
     }
