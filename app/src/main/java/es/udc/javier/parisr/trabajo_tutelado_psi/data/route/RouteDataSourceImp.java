@@ -68,12 +68,16 @@ public class RouteDataSourceImp implements RouteDataSource {
         routeadd.put("imageURI",route.getImageURI());
 
         route.setID(mDatabase.child("routes").push().getKey().toString());
+
+        routeadd.put("coordenadas",route.getCoordenadas());
+
         mDatabase.child("routes").push().setValue(routeadd);
 
         return adapter;
     }
 
     @Override
+
     public void evaluateRoute(Route route,float puntuacion){
         String login = FirebaseAuth.getInstance().getCurrentUser().getUid().toString();
         route.getCalifications().put(login,puntuacion);
@@ -82,4 +86,32 @@ public class RouteDataSourceImp implements RouteDataSource {
             mDatabase.child("routes").child(route.getID()).child("califications").push().setValue(route.getCalifications());
         }
     }
+    public RouteAdapter searchRoutes(final String s) {
+        mDatabase.child("routes").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                itemList.clear();
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    Route item=RouteParser.toRoute(ds);
+                    if(item.getRoute_name().toLowerCase().contains(s.toLowerCase())) {
+                        itemList.add(item);
+                    }
+                    adapter.notifyDataSetChanged();
+                    Log.d(TAG, "Value is: " + item.getRoute_name());
+                }
+            }
+
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                // Failed to read value
+                Log.w(TAG, "Failed to read value.", error.toException());
+            }
+        });
+        return  adapter;
+    }
+
+
 }

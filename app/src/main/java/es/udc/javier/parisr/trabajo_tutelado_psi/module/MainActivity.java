@@ -80,6 +80,19 @@ public class MainActivity extends AppCompatActivity {
                 || super.onSupportNavigateUp();
     }
 
+    public void onConfItemSelected(MenuItem item){
+        Intent intent = new Intent(getApplicationContext(),ConfActivity.class);
+        startActivity(intent);
+    }
+
+    public void onShareItemSelected(MenuItem item){
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_TEXT, "¡Crea y comparte tus rutas de running favoritas! " +
+                "Descargala ya en: http://RunFic.com");
+        startActivity(Intent.createChooser(intent,"Compartir por:"));
+    }
+
     public void logOut(MenuItem item) {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setMessage("¿Seguro que quieres desconectarte?").setPositiveButton("Aceptar",

@@ -7,4 +7,5 @@ public interface RouteDataSource {
     RouteAdapter searchRoutes();
     RouteAdapter addRoute(Route route);
     void evaluateRoute(Route route,float puntuacion);
+    RouteAdapter searchRoutes(String s);
 }

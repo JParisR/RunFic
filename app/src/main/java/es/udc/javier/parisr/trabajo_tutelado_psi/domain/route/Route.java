@@ -1,10 +1,14 @@
 package es.udc.javier.parisr.trabajo_tutelado_psi.domain.route;
 
 import java.io.Serializable;
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+=======
+import java.io.StringReader;
+>>>>>>> 2ff36f40597bad88efaab139d5f0e05985bb21c2
 
 public class Route implements Serializable {
 
@@ -14,12 +18,14 @@ public class Route implements Serializable {
     private String route_subname;
     private String route_description;
     private String imageURI;
+    private String coordenadas;
 
-    public Route(String route_name, String route_subname, String route_description, String imageURI) {
+    public Route(String route_name, String route_subname, String route_description, String imageURI, String coordenadas) {
         this.route_name = route_name;
         this.route_subname = route_subname;
         this.route_description = route_description;
         this.imageURI=imageURI;
+        this.coordenadas = coordenadas;
 
     }
 
@@ -34,11 +40,12 @@ public class Route implements Serializable {
         this.califications = califications;
     }
 
-    public Route(String route_name, String route_subname, String route_description) {
+    public Route(String route_name, String route_subname, String route_description,String coordenadas) {
         this.route_name = route_name;
         this.route_subname = route_subname;
         this.route_description = route_description;
         this.imageURI="https://media.quincemil.com/imagenes/2019/09/19181814/Torre-de-Hercules-aerea-640x360.jpg";
+        this.coordenadas = coordenadas;
     }
 
     public Route(String ID, String route_name, String route_subname, String route_description, String imageURI) {
@@ -90,5 +97,13 @@ public class Route implements Serializable {
 
     public void setRoute_description(String route_description) {
         this.route_description = route_description;
+    }
+
+    public String getCoordenadas() {
+        return coordenadas;
+    }
+
+    public void setC(String coordenadas) {
+        this.coordenadas = coordenadas;
     }
 }

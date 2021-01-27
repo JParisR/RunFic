@@ -19,7 +19,16 @@ public class RouteServiceImp implements RouteService {
         return mDatasource.addRoute(route);
     }
 
+<<<<<<< HEAD
     public void evaluateRoute(Route route, float puntuacion){
         mDatasource.evaluateRoute(route,puntuacion);
     }
+=======
+    @Override
+    public RouteAdapter searchRoutes(String s) {
+        return mDatasource.searchRoutes(s);
+    }
+
+
+>>>>>>> 2ff36f40597bad88efaab139d5f0e05985bb21c2
 }
