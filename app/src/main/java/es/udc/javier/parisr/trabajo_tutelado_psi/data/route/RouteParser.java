@@ -21,6 +21,8 @@ public class RouteParser {
             description = ds.child("description").getValue().toString();
         if(ds.child("imageURI").getValue()!=null)
             imageURI = ds.child("imageURI").getValue().toString();
+        if(ds.child("coordenadas").getValue()!=null)
+            coordenadas = ds.child("coordenadas").getValue().toString();
 
         return new Route(ID,name, subname, description, imageURI);
     }
