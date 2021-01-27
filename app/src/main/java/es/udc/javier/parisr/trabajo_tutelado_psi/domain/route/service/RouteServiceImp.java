@@ -7,6 +7,7 @@ import es.udc.javier.parisr.trabajo_tutelado_psi.module.ui.list.RouteAdapter;
 
 public class RouteServiceImp implements RouteService {
 
+
     private RouteDataSource mDatasource = new RouteDataSourceImp();
 
     @Override
@@ -18,10 +19,7 @@ public class RouteServiceImp implements RouteService {
         return mDatasource.addRoute(route);
     }
 
-    @Override
-    public RouteAdapter searchRoutes(String s) {
-        return mDatasource.searchRoutes(s);
+    public void evaluateRoute(Route route, float puntuacion){
+        mDatasource.evaluateRoute(route,puntuacion);
     }
-
-
 }

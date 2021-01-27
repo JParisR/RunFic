@@ -10,8 +10,9 @@ import es.udc.javier.parisr.trabajo_tutelado_psi.domain.route.Route;
 public class RouteParser {
 
     public static Route toRoute(DataSnapshot ds){
-        String name="default",subname="default",description="default",imageURI="default" ,coordenadas ="default";
+        String ID;String name="default",subname="default",description="default",imageURI="default";
 
+        ID=ds.getKey().toString();
         if(ds.child("name").getValue()!=null)
             name = ds.child("name").getValue().toString();
         if(ds.child("subname").getValue()!=null)
@@ -23,9 +24,7 @@ public class RouteParser {
         if(ds.child("coordenadas").getValue()!=null)
             coordenadas = ds.child("coordenadas").getValue().toString();
 
-
-
-        return new Route(name, subname, description, imageURI, coordenadas);
+        return new Route(ID,name, subname, description, imageURI);
     }
 
     public static List<Route> toListRoutes(DataSnapshot dataSnapshot){

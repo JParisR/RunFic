@@ -2,7 +2,9 @@ package es.udc.javier.parisr.trabajo_tutelado_psi.module.auth;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -41,7 +43,7 @@ public class AuthActivity extends AppCompatActivity {
                 break;
 
             case SUCCESS:
-                goToMainActivity();
+                goToMainActivity(email);
                 break;
 
             case FAILURE:
@@ -68,7 +70,7 @@ public class AuthActivity extends AppCompatActivity {
                 break;
 
             case SUCCESS:
-                goToMainActivity();
+                goToMainActivity(email);
                 break;
 
             case FAILURE:
@@ -78,7 +80,7 @@ public class AuthActivity extends AppCompatActivity {
         }
     }
 
-    public void goToMainActivity(){
+    public void goToMainActivity(String email){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();
