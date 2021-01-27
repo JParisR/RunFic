@@ -69,8 +69,8 @@ public class AddActivity extends AppCompatActivity implements OnMapReadyCallback
                 }
 
 
-                Route route = new Route(name,sub,desc,image,coordenadas);
-                routeService.addRoute(route);
+                Route route1 = new Route(name,sub,desc,image,coordenadas);
+                routeService.addRoute(route1);
 
                 finish();
             }
