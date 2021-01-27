@@ -1,4 +1,37 @@
 <resources>
-    <string name="app_name">Trabajo_tutelado_PSI</string>
-    <string name="title_activity_detail">Map</string>
+    <string name="app_name">RunFic</string>
+    <string name="title_activity_detail">Mapa</string>
+    <string name="auth_email">Email</string>
+    <string name="auth_password">Contraseña</string>
+    <string name="bt_auth_register"><u>Registrarse</u></string>
+    <string name="bt_auth_login">Iniciar sesión</string>
+    <string name="versubtitle_sett" translatable="true">Ver subtítulo de la ruta</string>
+    <string name="verdescription_sett" translatable="true">Ver descripción de la ruta</string>
+    <string name="config" translatable="true">Configuración</string>
+    <string name="title_activity_menu">MenuActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">RunFic</string>
+    <string name="nav_header_subtitle">soporte@runfic.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Ajustes</string>
+
+    <string name="menu_home">Lista de rutas</string>
+    <string name="menu_gallery">Invitar amigos</string>
+    <string name="menu_logout">Desconectarse</string>
+    <string name="text_welcome">¡Accede a RunFic!</string>
+    <string name="app_logo">App logo</string>
+    <string name="text_or">o</string>
+    <string name="action_share">Compartir</string>
+    <string name="tv_add_name">Nombre</string>
+    <string name="et_add_name">Nombre</string>
+    <string name="tv_add_subtitle">Subtítulo</string>
+    <string name="et_add_subtitle">Subtítulo</string>
+    <string name="tv_add_description">Descripción</string>
+    <string name="et_add_description">Descripción</string>
+    <string name="tv_add_image">Imagen</string>
+    <string name="et_add_image">URL de la imagen</string>
+    <string name="bt_add_route">Crear ruta</string>
+    <string name="bt_reset_route">Reiniciar Ruta</string>
+    <string name="menu_search">Buscar Ruta</string>
 </resources>
